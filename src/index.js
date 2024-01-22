@@ -7,15 +7,16 @@ let humidityElement = document.querySelector("#humidity");
 let windspeedElement = document.querySelector("#windspeed");
 let timeElement = document.querySelector("#time");
 let date = new Date(response.data.time * 1000);
-
+let weatherEmojiElement = document.querySelector("#weather-emoji");
+console.log(response.data);
     cityElement.innerHTML = response.data.city;
     temperatureElement.innerHTML = Math.round(temperature);
     descriptionElement.innerHTML = response.data.condition.description;
 humidityElement.innerHTML = `${response.data.temperature.humidity}%`;
 windspeedElement.innerHTML = `${response.data.wind.speed} mph`;
 timeElement.innerHTML = formatDate(date);
+weatherEmojiElement.innerHTML = `<img src="${response.data.condition.icon_url}" class="weather-app-icon" />`;
 }
-
 function formatDate(date) {
     let minutes = date.getMinutes();
     let hours = date. getHours();

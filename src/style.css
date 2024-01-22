@@ -41,7 +41,7 @@ color: #9ca69a;
 .weather-app-temperature {
 color:#293b23; 
    font-weight: 500;
-   font-size: 88px;
+   font-size: 78px;
    margin-left: 10px;
 }
 .weather-unit {
@@ -86,6 +86,10 @@ main {
     display: flex;
     justify-content: space-between;
 
+}
+.weather-emoji {
+  font-size: 44px;
+  margin-top: 22px;
 }
 
 
