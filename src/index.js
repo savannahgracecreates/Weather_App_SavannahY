@@ -8,7 +8,7 @@ let windspeedElement = document.querySelector("#windspeed");
 let timeElement = document.querySelector("#time");
 let date = new Date(response.data.time * 1000);
 let weatherEmojiElement = document.querySelector("#weather-emoji");
-console.log(response.data);
+
     cityElement.innerHTML = response.data.city;
     temperatureElement.innerHTML = Math.round(temperature);
     descriptionElement.innerHTML = response.data.condition.description;
