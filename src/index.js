@@ -16,7 +16,11 @@ humidityElement.innerHTML = `${response.data.temperature.humidity}%`;
 windspeedElement.innerHTML = `${response.data.wind.speed} mph`;
 timeElement.innerHTML = formatDate(date);
 weatherEmojiElement.innerHTML = `<img src="${response.data.condition.icon_url}" class="weather-app-icon" />`;
+
+
+getForecast(response.data.city);
 }
+
 function formatDate(date) {
     let minutes = date.getMinutes();
     let hours = date. getHours();
@@ -42,13 +46,21 @@ function handleSearchSubmit(event) {
 searchCity(searchInput.value);
 }
 
-function displayForecast () {
-    let forecastElement = document.querySelector("#forecast");
-let days = ["Tue", "Wed", "Thurs", "Fri", "Sat"];
-let forecastHtml = "";
-days.forEach(function(day) {
-forecastHtml = forecastHtml +
-`
+function getForecast(city) {
+  let apiKey = "d39d6443520afb97te34a49a61faf9o3";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=imperial`;
+  axios(apiUrl).then(displayForecast);
+}
+
+function displayForecast(response) {
+  console.log(response.data);
+
+  let days = ["Tue", "Wed", "Thurs", "Fri", "Sat"];
+  let forecastHtml = "";
+  days.forEach(function (day) {
+    forecastHtml =
+      forecastHtml +
+      `
 <div class="weather-forecast-day">
 <div class="weather-forecast-date">${day}</div>
 <div class="weather-forecast-icon">☀️</div>
@@ -60,9 +72,9 @@ forecastHtml = forecastHtml +
 </div>
 </div>
 `;
-});
-
-forecastElement.innerHTML = forecastHtml;
+  });
+  let forecastElement = document.querySelector("#forecast");
+  forecastElement.innerHTML = forecastHtml;
 }
 
 
@@ -71,6 +83,7 @@ let searchFormElement = document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", handleSearchSubmit);
 
 searchCity("Charleston");
-displayForecast();
+
+
 
 
