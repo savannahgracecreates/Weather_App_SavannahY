@@ -1,6 +1,41 @@
 body {
-  background-color: #293b23;
   font-family: 'Montserrat', sans-serif;
+}
+.default {
+  background-image: url("https://images.pexels.com/photos/1261728/pexels-photo-1261728.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+  background-size: cover;
+        background-repeat: no-repeat;
+}
+.scattered-clouds {
+  background-image: url("https://i.imgur.com/6qL5pAu.jpg");
+  background-size: cover;
+        background-repeat: no-repeat;
+}
+
+.mist {
+  background-image: url("https://i.imgur.com/9uy4tJR.jpg");
+  background-size: cover;
+        background-repeat: no-repeat;
+}
+.thunderstorm {
+  background-image: url("https://i.imgur.com/r8BoXx6.jpg");
+  background-size: cover;
+        background-repeat: no-repeat;
+}
+.rain {
+  background-image: url("https://i.imgur.com/Ftv2Qyc.jpg");
+  background-size: cover;
+        background-repeat: no-repeat;
+}
+.snow {
+  background-image: url("https://i.imgur.com/bwPRNtN.jpgtN");
+  background-size: cover;
+        background-repeat: no-repeat;
+}
+.clear {
+  background-image: url("https://i.imgur.com/Bz5yrS6.jpg");
+  background-size: cover;
+        background-repeat: no-repeat;
 }
 a {
     color:#60664d;

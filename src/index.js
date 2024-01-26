@@ -1,43 +1,59 @@
 function refreshWeather(response) {
-    let temperatureElement = document.querySelector("#temperature");
-    let temperature = response.data.temperature.current;
-    let cityElement = document.querySelector("#city");
+let temperatureElement = document.querySelector("#temperature");
+let temperature = response.data.temperature.current;
+let cityElement = document.querySelector("#city");
 let descriptionElement = document.querySelector("#description");
 let humidityElement = document.querySelector("#humidity");
 let windspeedElement = document.querySelector("#windspeed");
 let timeElement = document.querySelector("#time");
 let date = new Date(response.data.time * 1000);
 let weatherEmojiElement = document.querySelector("#weather-emoji");
-
-    cityElement.innerHTML = response.data.city;
-    temperatureElement.innerHTML = Math.round(temperature);
-    descriptionElement.innerHTML = response.data.condition.description;
+cityElement.innerHTML = response.data.city;
+temperatureElement.innerHTML = Math.round(temperature);
+descriptionElement.innerHTML = response.data.condition.description;
 humidityElement.innerHTML = `${response.data.temperature.humidity}%`;
-windspeedElement.innerHTML = `${response.data.wind.speed} mph`;
+windspeedElement.innerHTML = `${Math.round(response.data.wind.speed)} mph`;
 timeElement.innerHTML = formatDate(date);
 weatherEmojiElement.innerHTML = `<img src="${response.data.condition.icon_url}" class="weather-app-icon" />`;
-
-
 getForecast(response.data.city);
 }
 
 function formatDate(date) {
     let minutes = date.getMinutes();
     let hours = date. getHours();
-    let days = ["Sunday", "Monday", "Tuesday", "Wednesday",
-"Thursday", "Friday", "Saturday"];
+    let days = ["Sunday", "Monday", "Tuesday", "Wednesday","Thursday", "Friday", "Saturday"];
     let day = days[date.getDay()];
     if (minutes<10) {
         minutes = `0${minutes}`;
     }
     return `${day} ${hours}:${minutes},`;
-
 }
+
+function changeBackground(response) {
+let body = document.querySelector("body");
+let condition = response.data.condition.description;  
+if ((condition = "broken clouds"|| "scattered clouds"|| "few clouds" || "overcast clouds")) {
+  body.classList.add("scattered-clouds");
+  body.classList.remove("default");
+    }
+      else if (condition =  "light rain"|| "moderate rain"|| "heavy rain"){
+        body.classList.add("rain");
+        body.classList.remove("default");
+      }
+      else if ((condition = "light snow" || "moderate snow" || "heavy snow" || "rain and snow")) {
+        body.classList.add("snow");
+        body.classList.remove("default");
+      } else if ((condition = "clear sky")) {
+        body.classList.add("clear");
+        body.classList.remove("default");
+      }
+    }
 
 function searchCity (city) {
     let apiKey = "d39d6443520afb97te34a49a61faf9o3";
     let apiUrl =`https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=imperial`;
 axios.get(apiUrl).then(refreshWeather);
+axios.get(apiUrl).then(changeBackground);
 }
 
 function handleSearchSubmit(event) {
@@ -93,12 +109,8 @@ function displayForecast(response) {
 }
 
 
-
 let searchFormElement = document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", handleSearchSubmit);
 
 searchCity("Charleston");
-
-
-
-
+changeBackground;
