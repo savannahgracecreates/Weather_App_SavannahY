@@ -31,35 +31,46 @@ function formatDate(date) {
 
 function changeBackground(response) {
   let body = document.querySelector("body");
-  let condition = response.data.condition.description;
+  let condition = response.data.condition.icon;
   if (
-    condition === "broken clouds" ||
-    condition === "scattered clouds" ||
-    condition === "few clouds" ||
-    condition === "overcast clouds"
+    condition === "scattered-clouds-day" ||
+    condition === "scattered-clouds-night" 
   ) {
     body.classList.add("scattered-clouds");
     body.classList.remove("default");
+  } else if (condition === "few-clouds-day" || condition === "few-clouds-night") {
+    body.classList.add("few-clouds");
+    body.classList.remove("default");
   } else if (
-    condition === "light rain" ||
-    condition === "moderate rain" ||
-    condition === "heavy rain"
+    condition === "shower-rain-day" ||
+    condition === "shower-rain-night" ||
+    condition === "rain-day" ||
+    condition === "rain-night"
   ) {
     body.classList.add("rain");
     body.classList.remove("default");
-  } else if (
-    condition === "light snow" ||
-    condition === "moderate snow" ||
-    condition === "heavy snow" ||
-    condition === "rain and snow"
-  ) {
+  } else if (condition === "snow-day" || condition === "snow-night") {
     body.classList.add("snow");
     body.classList.remove("default");
-  } else if (condition === "clear sky") {
+  } else if (
+    condition === "broken-clouds-day" ||
+    condition === "broken-clouds-night"
+  ) {
+    body.classList.add("broken-clouds");
+    body.classList.remove("default");
+  } else if (condition === "clear-sky-day" || condition === "clear-sky-night") {
     body.classList.add("clear");
     body.classList.remove("default");
-  }
-}
+  } else if (
+    condition === "thunderstorm-day" ||
+    condition === "thunderstorm-night"
+  ) {
+    body.classList.add("thunderstorm");
+    body.classList.remove("default");
+  } else if (condition === "mist-day" || condition === "mist-night") {
+    body.classList.add("mist");
+    body.classList.remove("default");
+  }}
 
 function searchCity (city) {
     let apiKey = "d39d6443520afb97te34a49a61faf9o3";

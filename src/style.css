@@ -6,6 +6,16 @@ body {
   background-size: cover;
         background-repeat: no-repeat;
 }
+.broken-clouds {
+  background-image: url("https://mcusercontent.com/f2f5e707398da5976369bde53/images/c4c3d4a3-70b0-871b-902e-b60502a5226b.jpg");
+  background-size: cover;
+        background-repeat: no-repeat;
+}
+.few-clouds {
+  background-image: url("https://mcusercontent.com/f2f5e707398da5976369bde53/images/b283ea31-fea2-0ae1-62ce-47d1dbf1163d.jpg");
+  background-size: cover;
+        background-repeat: no-repeat;
+}
 .scattered-clouds {
   background-image: url("https://mcusercontent.com/f2f5e707398da5976369bde53/images/e3334773-bd68-1736-0bf6-5ba30b1fc824.jpg");
   background-size: cover;
@@ -74,39 +84,39 @@ color: #9ca69a;
     margin-top: 22px;
 }
 .weather-app-temperature {
-color:#293b23; 
+color:#071e26; 
    font-weight: 500;
    font-size: 78px;
    margin-left: 10px;
 }
 .weather-unit {
     margin-top: 6px;
-    color:#293b23; 
+    color:#071e26; 
    font-weight: 500;
    font-size: 28px;
 }
 
 .humidity-data {
-   color:#293b23; 
+   color:#071e26; 
    font-weight: 500;
 }
 .wind-data {
-    color:#293b23;
+    color:#071e26;
     font-weight: 500;
 }
 .search-form-input {
-background-color: #f3f7f2;
-color: #d8dee8;
+background-color: #e9f5f9;
+color: #071e26;
 border: none;
 border-radius: 6px;
 font-size: 16px;
-width: 80%;
+width: 82%;
 padding: 7px;
 }
 
 .search-button {
-    background-color: #60664d;
-    color: white;
+    background-color: #0f3c4c;
+    color: #e9f5f9;
     padding: 7px;
     border: none;
     border-radius: 7px;
@@ -149,7 +159,7 @@ main {
 }
 .weather-forecast-temperatures {
   text-align: center;
-  color: #60664d;
+  color: #0f3c4c;
   margin-top: 10px;
   display: flex;
   justify-content: center;
