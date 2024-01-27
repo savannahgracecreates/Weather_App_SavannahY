@@ -30,24 +30,36 @@ function formatDate(date) {
 }
 
 function changeBackground(response) {
-let body = document.querySelector("body");
-let condition = response.data.condition.description;  
-if ((condition = "broken clouds"|| "scattered clouds"|| "few clouds" || "overcast clouds")) {
-  body.classList.add("scattered-clouds");
-  body.classList.remove("default");
-    }
-      else if (condition =  "light rain"|| "moderate rain"|| "heavy rain"){
-        body.classList.add("rain");
-        body.classList.remove("default");
-      }
-      else if ((condition = "light snow" || "moderate snow" || "heavy snow" || "rain and snow")) {
-        body.classList.add("snow");
-        body.classList.remove("default");
-      } else if ((condition = "clear sky")) {
-        body.classList.add("clear");
-        body.classList.remove("default");
-      }
-    }
+  let body = document.querySelector("body");
+  let condition = response.data.condition.description;
+  if (
+    condition === "broken clouds" ||
+    condition === "scattered clouds" ||
+    condition === "few clouds" ||
+    condition === "overcast clouds"
+  ) {
+    body.classList.add("scattered-clouds");
+    body.classList.remove("default");
+  } else if (
+    condition === "light rain" ||
+    condition === "moderate rain" ||
+    condition === "heavy rain"
+  ) {
+    body.classList.add("rain");
+    body.classList.remove("default");
+  } else if (
+    condition === "light snow" ||
+    condition === "moderate snow" ||
+    condition === "heavy snow" ||
+    condition === "rain and snow"
+  ) {
+    body.classList.add("snow");
+    body.classList.remove("default");
+  } else if (condition === "clear sky") {
+    body.classList.add("clear");
+    body.classList.remove("default");
+  }
+}
 
 function searchCity (city) {
     let apiKey = "d39d6443520afb97te34a49a61faf9o3";
